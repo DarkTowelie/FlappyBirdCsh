@@ -24,7 +24,7 @@ namespace FlappyBird
             Invalidate();
         }
 
-        private void init ()
+        private void init()
         {
             gameOver = false;
 
@@ -88,8 +88,6 @@ namespace FlappyBird
                 score++;
                 pipe2.Passed = true;
             }
-
-
         }
         private bool CheckGameOver(Pipe pipe)
         {
@@ -109,15 +107,15 @@ namespace FlappyBird
                 if ((birdUBound <= topPipeBound) || (birdBBound >= bottomPipeBound))
                 {
                     return true;
-                }      
+                }
                 else
                 {
                     return false;
-                }    
+                }
             }
             else
             {
-               return false;
+                return false;
             }
         }
 
@@ -128,7 +126,25 @@ namespace FlappyBird
             else
                 return false;
         }
-                   
+
+        private void controll()
+        {
+            if (!gameOver)
+            {
+                bird.JumpSound.Play();
+                bird.jump();
+            }
+            else
+                init();
+
+            if (!timer1.Enabled)
+            {
+                timer1.Start();
+                timer1.Interval = 10;
+                bird.jump();
+            }
+        }
+
         private void f_FlappyBird_Paint(object sender, PaintEventArgs e)
         {
             
@@ -153,25 +169,22 @@ namespace FlappyBird
 
         private void f_FlappyBird_Click(object sender, EventArgs e)
         {
-            if (!gameOver)
-            {
-                bird.JumpSound.Play();
-                bird.jump();
-            }
-            else
-                init();
+            controll();
+        }
 
-            if (!timer1.Enabled)
+        private void f_FlappyBird_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 32)
             {
-                timer1.Start();
-                timer1.Interval = 10;
-                bird.jump();
-            } 
+                controll();
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             update();
         }
+
+        
     }
 }

@@ -50,6 +50,7 @@ namespace FlappyBird
             this.Text = "Flappy Bird";
             this.Click += new System.EventHandler(this.f_FlappyBird_Click);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.f_FlappyBird_Paint);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.f_FlappyBird_KeyDown);
             this.ResumeLayout(false);
 
         }
