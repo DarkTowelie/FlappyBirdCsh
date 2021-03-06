@@ -48,9 +48,9 @@ namespace FlappyBird
             this.MaximizeBox = false;
             this.Name = "f_FlappyBird";
             this.Text = "Flappy Bird";
-            this.Click += new System.EventHandler(this.f_FlappyBird_Click);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.f_FlappyBird_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.f_FlappyBird_KeyDown);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.f_FlappyBird_MouseDown);
             this.ResumeLayout(false);
 
         }

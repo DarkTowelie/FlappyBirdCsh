@@ -167,7 +167,12 @@ namespace FlappyBird
             graphics.DrawImage(pipe2.SpriteBottom, pipe2.X, pipe2.Y + pipe2.SpriteSizeY + pipe2.WindowSize, pipe2.SpriteSizeX, pipe2.SpriteSizeY);
         }
 
-        private void f_FlappyBird_Click(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            update();
+        }
+
+        private void f_FlappyBird_MouseDown(object sender, MouseEventArgs e)
         {
             controll();
         }
@@ -179,12 +184,5 @@ namespace FlappyBird
                 controll();
             }
         }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            update();
-        }
-
-        
     }
 }
